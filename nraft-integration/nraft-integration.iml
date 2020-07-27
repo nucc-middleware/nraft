@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5">
+    <output url="file://$MODULE_DIR$/../nraft-integration/target/classes" />
+    <output-test url="file://$MODULE_DIR$/../nraft-integration/target/test-classes" />
+    <content url="file://$MODULE_DIR$/../nraft-integration">
+      <sourceFolder url="file://$MODULE_DIR$/../nraft-integration/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../nraft-integration/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../nraft-integration/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/../nraft-integration/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="nraft-remoting" />
+    <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.42.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.72" level="project" />
+    <orderEntry type="module" module-name="nraft-common" />
+  </component>
+</module>

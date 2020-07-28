@@ -14,6 +14,7 @@
         <module>nraft-common</module>
         <module>nraft-election</module>
         <module>nraft-remoting</module>
+        <module>nraft-state-machine</module>
     </modules>
 
     <properties>

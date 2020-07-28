@@ -1,6 +1,6 @@
 package com.nucc.raft.remoting.rpc.handler;
 
-import com.nucc.raft.remoting.rpc.ServiceExposure;
+import com.nucc.raft.remoting.rpc.RemotingServiceExpoter;
 import com.nucc.raft.remoting.rpc.dto.RequestCommon;
 import com.nucc.raft.remoting.rpc.dto.ResponseCommon;
 
@@ -13,7 +13,7 @@ public class MsgHandler {
 
     public static ResponseCommon handler(RequestCommon requestCommon) {
         ResponseCommon responseCommon = new ResponseCommon();
-        Object object = ServiceExposure.getService(requestCommon.getServiceName());
+        Object object = RemotingServiceExpoter.getService(requestCommon.getServiceName());
         if (object == null) {
             responseCommon.setException(new RuntimeException("Not Service Found:" + requestCommon.getServiceName()));
             return responseCommon;

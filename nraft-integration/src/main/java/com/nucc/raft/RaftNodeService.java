@@ -2,12 +2,28 @@ package com.nucc.raft;
 
 import com.nucc.raft.remoting.ServerRemotingInit;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class RaftNodeService {
+
+    public static final AtomicBoolean isStarted = new AtomicBoolean(false);
+
+    public static void main(String[] args) {
+        start();
+    }
+
+    public static void start() {
+        if (!isStarted.compareAndSet(false, true)) {
+            return;
+        }
+        //暴露远程服务，并启动netty服务
+        exportRemotingService();
+    }
 
     /**
      * 系统启动入口
      */
-    public static void start() {
+    public static void exportRemotingService() {
         //1.注入服务，可通过配置文件实现
         //
         //2.启动通讯

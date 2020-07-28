@@ -1,12 +1,12 @@
 package com.example.server;
 
 
-import com.nucc.raft.annotations.ServiceName;
+import com.nucc.raft.annotations.RpcService;
 
 /**
  * 暂不支持传参是对象的调用方式
  */
-@ServiceName(name = "msgServiceDemo")
+@RpcService(name = "msgServiceDemo")
 public class MsgServiceDemoImpl implements MsgServiceDemo {
 
     public SendResponse send(String name, int age) {

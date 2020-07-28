@@ -1,9 +1,9 @@
 package com.example.server;
 
 
-import com.nucc.raft.annotations.ServiceName;
+import com.nucc.raft.annotations.RpcService;
 
-@ServiceName(name = "msgServiceDemo")
+@RpcService(name = "msgServiceDemo")
 public interface MsgServiceDemo {
 
     SendResponse send(String name, int age);

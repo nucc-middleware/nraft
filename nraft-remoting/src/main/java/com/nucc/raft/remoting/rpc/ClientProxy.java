@@ -1,10 +1,9 @@
-package com.nucc.raft.remoting;
+package com.nucc.raft.remoting.rpc;
 
 
 import com.alibaba.fastjson.JSON;
-import com.nucc.raft.annotations.ServiceName;
+import com.nucc.raft.annotations.RpcService;
 import com.nucc.raft.remoting.netty.client.ClientSendMessage;
-import com.nucc.raft.remoting.rpc.MessageStore;
 import com.nucc.raft.remoting.rpc.dto.RequestCommon;
 import com.nucc.raft.utils.UUIDUtils;
 
@@ -33,13 +32,13 @@ public class ClientProxy implements InvocationHandler {
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        if (method.getDeclaringClass().getAnnotation(ServiceName.class) == null) {
+        if (method.getDeclaringClass().getAnnotation(RpcService.class) == null) {
             throw new RuntimeException("ServiceName is null");
         }
         RequestCommon requestCommon = new RequestCommon();
         requestCommon.setRequesetId(UUIDUtils.getUUID());
         requestCommon.setMethodName(method.getName());
-        requestCommon.setServiceName(method.getDeclaringClass().getAnnotation(ServiceName.class).name());
+        requestCommon.setServiceName(method.getDeclaringClass().getAnnotation(RpcService.class).name());
         requestCommon.setParameterTypes(method.getParameterTypes());
         requestCommon.setParameters(args);
         ClientSendMessage.sendMessage(ip, port, requestCommon);

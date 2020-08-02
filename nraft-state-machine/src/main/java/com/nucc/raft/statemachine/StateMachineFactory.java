@@ -1,7 +1,9 @@
 package com.nucc.raft.statemachine;
 
 import com.nucc.raft.statemachine.api.IKvStateMachine;
-import com.nucc.raft.statemachine.core.StateMachine;
+import com.nucc.raft.statemachine.core.KVStateMachine;
+
+import java.io.IOException;
 
 
 /**
@@ -17,7 +19,7 @@ import com.nucc.raft.statemachine.core.StateMachine;
  */
 public class StateMachineFactory {
 
-    private static final IKvStateMachine instance = new StateMachine();
+    private static final IKvStateMachine instance = new KVStateMachine();
 
     public static IKvStateMachine getInstance(){
         return instance;

@@ -1,7 +1,10 @@
 package com.nucc.raft.statemachine;
 
-import com.nucc.raft.domain.LogEntry;
-import com.nucc.raft.statemachine.core.StateMachine;
+import com.nucc.raft.statemachine.domain.LogEntry;
+import com.nucc.raft.statemachine.api.IKvStateMachine;
+import com.nucc.raft.statemachine.domain.LogEntryDataKvImpl;
+
+import java.io.IOException;
 
 /**
  * @description:
@@ -11,11 +14,16 @@ import com.nucc.raft.statemachine.core.StateMachine;
  * @version: 1.0.0
  */
 public class Example {
-    public static void main(String[] args){
-        LogEntry logEntry = new LogEntry(1,1,"set Tom A");
-        LogEntry logEntry1 = new LogEntry(2,3,"del Tom");
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        LogEntry logEntry = new LogEntryDataKvImpl("set Tom A");
+        LogEntry logEntry1 = new LogEntryDataKvImpl("get Tom");
+        LogEntry logEntry2 = new LogEntryDataKvImpl("del Tom");
 
-        StateMachineFactory.getInstance().apply(logEntry);
-        StateMachineFactory.getInstance().apply(logEntry1);
+        IKvStateMachine kvStateMachine = StateMachineFactory.getInstance();
+        kvStateMachine.start();
+        kvStateMachine.apply(logEntry);
+        kvStateMachine.apply(logEntry1);
+        kvStateMachine.apply(logEntry2);
+        kvStateMachine.apply(logEntry1);
     }
 }

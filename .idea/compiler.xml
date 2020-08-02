@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="nraft-state-machine" />
+        <module name="nraft-append-log" />
+        <module name="nraft-integration" />
+        <module name="nraft-remoting" />
+        <module name="nraft-election" />
+        <module name="nraft-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="nraft" target="8" />
+      <module name="nraft-append-log" target="8" />
+      <module name="nraft-common" target="8" />
+      <module name="nraft-election" target="8" />
+      <module name="nraft-integration" target="8" />
+      <module name="nraft-remoting" target="8" />
+      <module name="nraft-state-machine" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
